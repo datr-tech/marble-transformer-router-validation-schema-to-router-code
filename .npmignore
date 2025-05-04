@@ -1,0 +1,17 @@
+.editorconfig
+.prettierignore
+.prettierrc.json
+
+CHANGELOG.md
+commitlint.config.mjs
+cspell.json
+eslint.config.mjs
+jest.config.json
+tsconfig.json
+
+.github/
+.husky/
+
+coverage/
+src/
+test/
