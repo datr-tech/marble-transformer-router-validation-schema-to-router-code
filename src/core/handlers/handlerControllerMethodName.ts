@@ -1,3 +1,6 @@
+/**
+ * @module core/handlers
+ */
 import { schemaMethodsMap } from '@app-mt-rvsr/core/maps';
 import { IHandler } from '@datr.tech/marble-transformer-core';
 

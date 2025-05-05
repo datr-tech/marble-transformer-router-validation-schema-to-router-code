@@ -12,6 +12,7 @@ import {
   handlerControllerOnSuccessVariableName,
   handlerHttpMethodName,
   handlerModelInstanceName,
+  handlerModelInterfaceName,
   handlerModelName,
   handlerModelPrefix,
   handlerModelPrefixUcFirst,
@@ -64,6 +65,7 @@ export const transformSourceToRouterDef: ITransformSourceToRouterDef = ({ source
     handlerRouterName,
     handlerRouterNameUcFirst,
     handlerRouterInterfaceName,
+    handlerModelInterfaceName,
   ];
   const transform = transformer({ handlers });
 

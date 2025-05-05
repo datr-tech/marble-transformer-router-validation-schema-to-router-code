@@ -8,6 +8,7 @@ export { handlerControllerNameUcFirst } from './handlerControllerNameUcFirst';
 export { handlerControllerOnSuccessVariableName } from './handlerControllerOnSuccessVariableName';
 export { handlerHttpMethodName } from './handlerHttpMethodName';
 export { handlerModelInstanceName } from './handlerModelInstanceName';
+export { handlerModelInterfaceName } from './handlerModelInterfaceName';
 export { handlerModelName } from './handlerModelName';
 export { handlerModelPrefix } from './handlerModelPrefix';
 export { handlerModelPrefixUcFirst } from './handlerModelPrefixUcFirst';

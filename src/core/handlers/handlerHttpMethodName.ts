@@ -1,3 +1,6 @@
+/**
+ * @module core/handlers
+ */
 import { IHandler } from '@datr.tech/marble-transformer-core';
 
 export const handlerHttpMethodName: IHandler = ({ accumulator }) => {
@@ -23,7 +26,7 @@ export const handlerHttpMethodName: IHandler = ({ accumulator }) => {
         break;
 
       case 'Update':
-        httpMethodName = 'Update';
+        httpMethodName = 'Patch';
         break;
     }
   }

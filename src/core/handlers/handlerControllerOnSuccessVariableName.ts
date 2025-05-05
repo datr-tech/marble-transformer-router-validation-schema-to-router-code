@@ -1,3 +1,6 @@
+/**
+ * @module core/handlers
+ */
 import { IHandler } from '@datr.tech/marble-transformer-core';
 
 export const handlerControllerOnSuccessVariableName: IHandler = ({ accumulator }) => {
@@ -19,7 +22,7 @@ export const handlerControllerOnSuccessVariableName: IHandler = ({ accumulator }
   }
 
   if (controllerMethodName !== '' && modelInstanceName !== '' && modelPrimaryKey !== '') {
-    if (controllerMethodName === 'Create') {
+    if (controllerMethodName === 'Read') {
       controllerOnSuccessVariableName = modelInstanceName;
     } else {
       controllerOnSuccessVariableName = modelPrimaryKey;

@@ -20,12 +20,14 @@ import {
 /**
  * @name					{{ routerName }}
  *
- * @description		The {{ controllerMethodName }} controller for {{ modelPrefix }},
- *                whose expected inputs are defined by '{{ routerValidationSchemaName }}',
- *                which, in turn, is used by 'express-validator' to perform input validation.
- *                When the validation succeeds, control passes to the associated controller,
- *                '{{ controllerName }}', which, on success, returns a status (or 'stat') object
- *                containing '{{ controllerOnSuccessVariableName }}'.
+ * @description		The '{{ controllerMethodName }}' router for '{{ modelPrefix }}',
+ *                whose expected inputs have been defined within the following schema:
+ *                '{{ routerValidationSchemaName }}',
+ *                
+ *                The schema will be used by 'express-validator' to perform input validation.
+ *                When the validation process succeeds, control will pass to the associated controller,
+ *                '{{ controllerName }}', which, when successful, returns a common status (or 'stat') object,
+ *                whose 'payload' will contain '{{ controllerOnSuccessVariableName }}'.
  *
  * @param					{Request}		req		The Express request.
  * @param         {Response}	res		The Express response.
@@ -43,14 +45,17 @@ export const {{ routerName }}: {{ routerInterfaceName }} = Router(options).{{ ht
 
 		try {
 			/*
-       * Handle input field validation errors
+       * Handle validation errors in relation to the fields
+       * defined within '{{ routerValidationSchemaName }}'.
+       * In addition, and because of the inclusion of 'checkExact()'
+       * above, ONLY fields defined within the schema will be accepted.
        */
 			if (!errors.isEmpty()) {
 				res.status(422).send({ error: errors.array() });
 			}
 	
 			/*
-       * On validation success, pass the 'validatedParams' to '{{ controllerName }}. 
+       * On validation success, pass the 'validatedParams' object to '{{ controllerName }}. 
        */
 			const validatedParams = matchedData<{{ modelInterfaceName }}>(req);
 			const stat = await {{ controllerName }}.{{ controllerMethodName }}(validatedParams);

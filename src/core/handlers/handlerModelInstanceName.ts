@@ -1,3 +1,6 @@
+/**
+ * @module core/handlers
+ */
 import { IHandler } from '@datr.tech/marble-transformer-core';
 
 export const handlerModelInstanceName: IHandler = ({ accumulator }) => {
