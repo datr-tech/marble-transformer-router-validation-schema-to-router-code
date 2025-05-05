@@ -1,3 +1,6 @@
+/**
+ * @module integration/core/handlers
+ */
 import { handlerApiName } from '../../../../dist';
 
 describe('handlerApiName', () => {

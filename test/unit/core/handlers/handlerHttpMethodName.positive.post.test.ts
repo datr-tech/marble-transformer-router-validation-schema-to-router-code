@@ -2,13 +2,13 @@ import { handlerHttpMethodName } from '@app-mt-rvsr/core/handlers';
 
 describe('handlerHttpMethodName', () => {
   describe('positive.post', () => {
-    test("should populate 'accumulator' with 'httpMethodName' when 'controllerMethodName' contains a valid value", () => {
+    test("should populate 'accumulator' with 'httpMethodName' when 'controllerMethodBase' contains a valid value", () => {
       /*
        * Arrange
        */
-      const controllerMethodName = 'Create';
+      const controllerMethodBase = 'Create';
       const accumulator = {
-        controllerMethodName,
+        controllerMethodBase,
         distraction: 'SHOULD_NOT_BE_ALTERED',
       };
       const httpMethodName = 'Post';

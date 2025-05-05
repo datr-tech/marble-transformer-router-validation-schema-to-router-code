@@ -1,24 +1,23 @@
 /**
  * @module core/handlers
  */
-import { schemaMethodsMap } from '@app-mt-rvsr/core/maps';
 import { IHandler } from '@datr.tech/marble-transformer-core';
 
 export const handlerControllerMethodName: IHandler = ({ accumulator }) => {
   let controllerMethodName = '';
-  let routerValidationSchemaName = '';
+  let controllerMethodBase = '';
+  let modelPrefixUcFirst = '';
 
-  if (typeof accumulator['routerValidationSchemaName'] !== 'undefined') {
-    routerValidationSchemaName = accumulator['routerValidationSchemaName'] as string;
+  if (typeof accumulator['controllerMethodBase'] !== 'undefined') {
+    controllerMethodBase = accumulator['controllerMethodBase'] as string;
   }
 
-  if (routerValidationSchemaName !== '') {
-    for (const methodMapItem of schemaMethodsMap) {
-      if (routerValidationSchemaName.includes(methodMapItem.router)) {
-        controllerMethodName = methodMapItem.controller;
-        break;
-      }
-    }
+  if (typeof accumulator['modelPrefixUcFirst'] !== 'undefined') {
+    modelPrefixUcFirst = accumulator['modelPrefixUcFirst'] as string;
+  }
+
+  if (controllerMethodBase !== '' && modelPrefixUcFirst !== '') {
+    controllerMethodName = controllerMethodBase.toLowerCase() + modelPrefixUcFirst;
   }
 
   if (controllerMethodName !== '') {

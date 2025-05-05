@@ -1,3 +1,6 @@
+/**
+ * @module integration/core/handlers
+ */
 import { handlerAppRef } from '../../../../dist';
 
 describe('handlerAppRef', () => {

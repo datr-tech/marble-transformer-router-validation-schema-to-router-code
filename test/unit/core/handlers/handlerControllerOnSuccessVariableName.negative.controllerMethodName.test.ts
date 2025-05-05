@@ -1,16 +1,16 @@
 import { handlerControllerOnSuccessVariableName } from '@app-mt-rvsr/core/handlers';
 
 describe('handlerControllerOnSuccessVariableName', () => {
-  describe('negative.controllerMethodName', () => {
+  describe('negative.controllerMethodBase', () => {
     test("should not populate 'accumulator' with a 'controllerOnSuccessVariableName' value (when any of three required fields are not present)", () => {
       /*
        * Arrange
        */
-      const controllerMethodName = 'Read';
+      const controllerMethodBase = 'Read';
       const modelInstanceName = 'testModel';
       const modelPrimaryKey = `${modelInstanceName}Id`;
       const accumulator = {
-        controllerMethodNameIncorrectKey: controllerMethodName,
+        controllerMethodBaseIncorrectKey: controllerMethodBase,
         distraction: 'SHOULD_NOT_BE_ALTERED',
         modelInstanceName,
         modelPrimaryKey,

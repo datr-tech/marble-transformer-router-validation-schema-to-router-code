@@ -5,14 +5,14 @@ import { IHandler } from '@datr.tech/marble-transformer-core';
 
 export const handlerControllerName: IHandler = ({ accumulator }) => {
   let controllerName = '';
-  let routerValidationSchemaName = '';
+  let modelPrefix = '';
 
-  if (typeof accumulator['routerValidationSchemaName'] !== 'undefined') {
-    routerValidationSchemaName = accumulator['routerValidationSchemaName'] as string;
+  if (typeof accumulator['modelPrefix'] !== 'undefined') {
+    modelPrefix = accumulator['modelPrefix'] as string;
   }
 
-  if (routerValidationSchemaName !== '') {
-    controllerName = routerValidationSchemaName.replace('ValidationSchema', 'Controller');
+  if (modelPrefix !== '') {
+    controllerName = modelPrefix + 'Controller';
   }
 
   if (controllerName !== '') {

@@ -2,13 +2,13 @@ import { handlerHttpMethodName } from '../../../../dist';
 
 describe('handlerHttpMethodName', () => {
   describe('positive.patch', () => {
-    test("should populate 'accumulator' with 'httpMethodName' when 'controllerMethodName' contains a valid value (of 'Update')", () => {
+    test("should populate 'accumulator' with 'httpMethodName' when 'controllerMethodBase' contains a valid value (of 'Update')", () => {
       /*
        * Arrange
        */
-      const controllerMethodName = 'Update';
+      const controllerMethodBase = 'Update';
       const accumulator = {
-        controllerMethodName,
+        controllerMethodBase,
         distraction: 'SHOULD_NOT_BE_ALTERED',
       };
       const httpMethodName = 'Patch';

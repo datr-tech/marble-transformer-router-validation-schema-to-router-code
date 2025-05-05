@@ -1,3 +1,6 @@
+/**
+ * @module integration/core/handlers
+ */
 import { handlerControllerDirName } from '../../../../dist';
 
 describe('handlerControllerDirName', () => {

@@ -5,14 +5,14 @@ import { IHandler } from '@datr.tech/marble-transformer-core';
 
 export const handlerControllerInterfaceName: IHandler = ({ accumulator }) => {
   let controllerInterfaceName = '';
-  let controllerNameUcFirst = '';
+  let controllerFqnsUcFirst = '';
 
-  if (typeof accumulator['controllerNameUcFirst'] !== 'undefined') {
-    controllerNameUcFirst = accumulator['controllerNameUcFirst'] as string;
+  if (typeof accumulator['controllerFqnsUcFirst'] !== 'undefined') {
+    controllerFqnsUcFirst = accumulator['controllerFqnsUcFirst'] as string;
   }
 
-  if (controllerNameUcFirst !== '') {
-    controllerInterfaceName = 'I' + controllerNameUcFirst;
+  if (controllerFqnsUcFirst !== '') {
+    controllerInterfaceName = 'I' + controllerFqnsUcFirst;
   }
 
   if (controllerInterfaceName !== '') {

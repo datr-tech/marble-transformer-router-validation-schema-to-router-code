@@ -4,13 +4,13 @@
 import { IHandler } from '@datr.tech/marble-transformer-core';
 
 export const handlerControllerOnSuccessVariableName: IHandler = ({ accumulator }) => {
-  let controllerMethodName = '';
+  let controllerMethodBase = '';
   let controllerOnSuccessVariableName = '';
   let modelInstanceName = '';
   let modelPrimaryKey = '';
 
-  if (typeof accumulator['controllerMethodName'] !== 'undefined') {
-    controllerMethodName = accumulator['controllerMethodName'] as string;
+  if (typeof accumulator['controllerMethodBase'] !== 'undefined') {
+    controllerMethodBase = accumulator['controllerMethodBase'] as string;
   }
 
   if (typeof accumulator['modelInstanceName'] !== 'undefined') {
@@ -21,8 +21,8 @@ export const handlerControllerOnSuccessVariableName: IHandler = ({ accumulator }
     modelPrimaryKey = accumulator['modelPrimaryKey'] as string;
   }
 
-  if (controllerMethodName !== '' && modelInstanceName !== '' && modelPrimaryKey !== '') {
-    if (controllerMethodName === 'Read') {
+  if (controllerMethodBase !== '' && modelInstanceName !== '' && modelPrimaryKey !== '') {
+    if (controllerMethodBase === 'Read') {
       controllerOnSuccessVariableName = modelInstanceName;
     } else {
       controllerOnSuccessVariableName = modelPrimaryKey;

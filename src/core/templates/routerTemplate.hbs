@@ -1,33 +1,26 @@
 /**
  * @module api/routers/{{ modelPrefix }}Router
  */
-import { {{ controllerName }} } from '{{ appRef }}/api/controllers/{{ controllerDirName }}';
-import { {{ controllerInterfaceName }}OutputError } from '{{ appRef }}/interfaces/api/controllers/{{ controllerInterfaceName }}OutputError';
-import { {{ controllerInterfaceName }}OutputSuccess } from '{{ appRef }}/interfaces/api/controllers/{{ controllerInterfaceName }}OutputError';
-import { {{ modelInterfaceName }} } from '{{ appRef }}/interfaces/api/models/{{ modelInterfaceName }}';
-import { {{ routerInterfaceName }} } from '{{ appRef }}/interfaces/api/routers/{{ routerInterfaceName }}';
-import { {{ routerValidationSchemaName }} } from '@datr.tech/cargo-router-validation-schemas-{{ apiShortName }}';
-import { options } from '@datr.tech/leith-config-api-router-options';
 import { Request, Response, Router } from 'express';
-import {
-  checkExact,
-  checkSchema,
-  matchedData,
-  Schema,
-  validationResult,
-} from 'express-validator';
+import { checkExact, checkSchema, matchedData, Schema, validationResult } from 'express-validator';
+import { {{ routerValidationSchemaName }} } from '@datr.tech/cargo-router-validation-schemas-{{ apiName }}';
+import { options } from '@datr.tech/leith-config-api-router-options';
+import { {{ controllerName }} } from '{{ appRef }}/api/controllers/{{ controllerDirName }}';
+import { {{ modelInterfaceName }} } from '{{ appRef }}/interfaces/api/models/{{ modelInterfaceName }}';
+import { {{ controllerInterfaceName }}OutputError as IControllerError, {{ controllerInterfaceName }}OutputSuccess as IControllerSuccess } from '{{ appRef }}/interfaces/api/controllers';
 
 /**
  * @name					{{ routerName }}
  *
- * @description		The '{{ controllerMethodName }}' router for '{{ modelPrefix }}',
- *                whose expected inputs have been defined within the following schema:
- *                '{{ routerValidationSchemaName }}',
+ * @description		The '{{ controllerMethodName }}' router for '{{ modelPrefix }}', whose expected
+ *                inputs have been defined within the following schema:
+ *                '{{ routerValidationSchemaName }}'.
  *                
  *                The schema will be used by 'express-validator' to perform input validation.
- *                When the validation process succeeds, control will pass to the associated controller,
- *                '{{ controllerName }}', which, when successful, returns a common status (or 'stat') object,
- *                whose 'payload' will contain '{{ controllerOnSuccessVariableName }}'.
+ *                When the validation process succeeds, control will pass to the associated
+ *                controller, '{{ controllerName }}', which, when successful, will return
+ *                a common status (or 'stat') object, whose 'payload' will contain
+ *                '{{ controllerOnSuccessVariableName }}'.
  *
  * @param					{Request}		req		The Express request.
  * @param         {Response}	res		The Express response.
@@ -36,7 +29,7 @@ import {
  * @author				Datr.Tech Admin <admin@datr.tech>
  * @version				0.3.2
  */
-export const {{ routerName }}: {{ routerInterfaceName }} = Router(options).{{ httpMethodName }}(
+export const {{ routerName }} = Router(options).{{ httpMethodName }}(
   '/',
   checkSchema(<Schema>{{ routerValidationSchemaName }}),
   checkExact(),
@@ -45,9 +38,12 @@ export const {{ routerName }}: {{ routerInterfaceName }} = Router(options).{{ ht
 
 		try {
 			/*
+       * Handle validation errors
+       * ------------------------
+       *
        * Handle validation errors in relation to the fields
        * defined within '{{ routerValidationSchemaName }}'.
-       * In addition, and because of the inclusion of 'checkExact()'
+       * Additionally, and because of the inclusion of 'checkExact()'
        * above, ONLY fields defined within the schema will be accepted.
        */
 			if (!errors.isEmpty()) {
@@ -55,27 +51,38 @@ export const {{ routerName }}: {{ routerInterfaceName }} = Router(options).{{ ht
 			}
 	
 			/*
-       * On validation success, pass the 'validatedParams' object to '{{ controllerName }}. 
+       * Pass the validated params to the controller
+       * -------------------------------------------
+       *
+       * On validation success, retrieve the 'validatedParams' object
+       * from the received 'req' (using 'matchedData') and pass them
+       * to '{{ controllerName }}'. 
        */
 			const validatedParams = matchedData<{{ modelInterfaceName }}>(req);
-			const stat = await {{ controllerName }}.{{ controllerMethodName }}(validatedParams);
+			const stat = await {{ controllerDirName }}.{{ controllerMethodName }}(validatedParams);
 
 			/*
+       * Handle controller errors
+       * ------------------------
+       *
        * If the common controller response object, 'stat', is not truthy, or if
-       * 'stat.error' is positive, then handle the error returned by the controller.
+       * 'stat.error' equals true, then handle the error returned by the controller.
        */
 			if (!stat || stat.error) {
-				const { message, responseStatusCode } = (stat as {{ controllerInterfaceName }}OutputError).payload;
+				const { message, responseStatusCode } = (stat as IControllerError).payload;
 				res.status(responseStatusCode).send({ error: message });
 			}
 
 		  /*
+       * Handle successful controller responses
+       * --------------------------------------
+       *
        * If the controller call proved to be successful, extract
-       * '{{ controllerOnSuccessVariableName }}' from 'stat.payload'
-       * and return it with an appropriate status code.
+       * '{{ controllerOnSuccessVariableName }}' from 'stat.payload' and return
+       * it with an appropriate status code.
        */
-			const { {{ controllerOnSuccessVariableName }}, responseStatusCode } = (stat as {{ controllerInterfaceName }}OutputSuccess).payload;
-			res.status( {{ responseStatusCode }}).send({ {{ controllerOnSuccessVariableName }} });
+			const { {{ controllerOnSuccessVariableName }}, responseStatusCode } = (stat as IControllerSuccess).payload;
+			res.status(responseStatusCode).send({ {{ controllerOnSuccessVariableName }} });
 		} catch(error) {
 
       /*

@@ -6,11 +6,11 @@ describe('handlerControllerOnSuccessVariableName', () => {
       /*
        * Arrange
        */
-      const controllerMethodName = 'Delete';
+      const controllerMethodBase = 'Delete';
       const modelInstanceName = 'testModel';
       const modelPrimaryKey = `${modelInstanceName}Id`;
       const accumulator = {
-        controllerMethodName,
+        controllerMethodBase,
         distraction: 'SHOULD_NOT_BE_ALTERED',
         modelInstanceNameIncorrectKey: modelInstanceName,
         modelPrimaryKey,

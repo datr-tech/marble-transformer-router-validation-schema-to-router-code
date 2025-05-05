@@ -1,5 +1,6 @@
 {
   "moduleNameMapper": {
+    "@app-mt-rvsr/(.*)": "<rootDir>/src/$1",
     "@test-mt-rvsr/(.*)": "<rootDir>/test/$1"
   },
   "preset": "ts-jest",

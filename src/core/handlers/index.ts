@@ -1,10 +1,12 @@
 export { handlerApiName } from './handlerApiName';
 export { handlerAppRef } from './handlerAppRef';
 export { handlerControllerDirName } from './handlerControllerDirName';
+export { handlerControllerFqns } from './handlerControllerFqns';
+export { handlerControllerFqnsUcFirst } from './handlerControllerFqnsUcFirst';
 export { handlerControllerInterfaceName } from './handlerControllerInterfaceName';
+export { handlerControllerMethodBase } from './handlerControllerMethodBase';
 export { handlerControllerMethodName } from './handlerControllerMethodName';
 export { handlerControllerName } from './handlerControllerName';
-export { handlerControllerNameUcFirst } from './handlerControllerNameUcFirst';
 export { handlerControllerOnSuccessVariableName } from './handlerControllerOnSuccessVariableName';
 export { handlerHttpMethodName } from './handlerHttpMethodName';
 export { handlerModelInstanceName } from './handlerModelInstanceName';

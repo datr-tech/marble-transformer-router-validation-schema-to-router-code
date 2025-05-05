@@ -2,13 +2,14 @@ import { handlerControllerName } from '../../../../dist';
 
 describe('handlerControllerName', () => {
   describe('negative', () => {
-    test("should not populate 'accumulator' with 'controllerName' when 'routerValidationSchemaName' is missing (and not alter 'distraction')", () => {
+    test("should not populate 'accumulator' with 'controllerName' when 'modelPrefix' is unavailable (and not alter 'distraction')", () => {
       /*
        * Arrange
        */
+      const modelPrefix = `test`;
       const accumulator = {
+        modelPrefixIncorrectKey: modelPrefix,
         distraction: 'SHOULD_NOT_BE_ALTERED',
-        routerValidationSchemaNameIncorrect: 'INCORRECT_KEY',
       };
       const responseExpected = { ...accumulator };
 

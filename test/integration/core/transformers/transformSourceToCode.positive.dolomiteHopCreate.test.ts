@@ -1,5 +1,6 @@
+import { routerTemplatePath } from '@app-mt-rvsr/core/config';
 import { fsTemplate } from '@datr.tech/marble-generator-file-system-components';
-import { routerTemplatePath, transformSourceToCode } from '../../../../dist';
+import { transformSourceToCode } from '../../../../dist';
 
 describe('transformSourceToCode', () => {
   describe('positive.dolomiteHopCreate', () => {
@@ -20,11 +21,13 @@ describe('transformSourceToCode', () => {
         modelPrimaryKey: 'hopId',
         modelInstanceName: 'hopModel',
         modelInterfaceName: 'IHopModel',
-        controllerName: 'hopControllerCreateHop',
-        controllerNameUcFirst: 'HopControllerCreateHop',
+        controllerName: 'hopController',
+        controllerFqns: 'hopControllerCreateHop',
+        controllerFqnsUcFirst: 'HopControllerCreateHop',
         controllerInterfaceName: 'IHopControllerCreateHop',
         controllerDirName: 'hopController',
-        controllerMethodName: 'Create',
+        controllerMethodBase: 'Create',
+        controllerMethodName: 'createHop',
         controllerOnSuccessVariableName: 'hopId',
         httpMethodName: 'Post',
         routerName: 'hopRouterCreateHop',

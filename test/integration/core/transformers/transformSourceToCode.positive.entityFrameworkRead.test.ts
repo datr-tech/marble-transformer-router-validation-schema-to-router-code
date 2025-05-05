@@ -1,5 +1,6 @@
+import { routerTemplatePath } from '@app-mt-rvsr/core/config';
 import { fsTemplate } from '@datr.tech/marble-generator-file-system-components';
-import { routerTemplatePath, transformSourceToCode } from '../../../../dist';
+import { transformSourceToCode } from '../../../../dist';
 
 describe('transformSourceToCode', () => {
   describe('positive.dolomiteHopCreate', () => {
@@ -11,20 +12,22 @@ describe('transformSourceToCode', () => {
       const routerValidationSchemaName = 'frameworkValidationSchemaReadFramework';
       const source = { apiName, routerValidationSchemaName };
       const routerDef = {
-        apiName: 'entity',
+        apiName,
         appRef: '@app-ae',
-        routerValidationSchemaName: 'frameworkValidationSchemaReadFramework',
+        routerValidationSchemaName,
         modelPrefix: 'framework',
         modelPrefixUcFirst: 'Framework',
         modelName: 'FrameworkModel',
         modelPrimaryKey: 'frameworkId',
         modelInstanceName: 'frameworkModel',
         modelInterfaceName: 'IFrameworkModel',
-        controllerName: 'frameworkControllerReadFramework',
-        controllerNameUcFirst: 'FrameworkControllerReadFramework',
+        controllerName: 'frameworkController',
+        controllerFqns: 'frameworkControllerReadFramework',
+        controllerFqnsUcFirst: 'FrameworkControllerReadFramework',
         controllerInterfaceName: 'IFrameworkControllerReadFramework',
         controllerDirName: 'frameworkController',
-        controllerMethodName: 'Read',
+        controllerMethodBase: 'Read',
+        controllerMethodName: 'readFramework',
         controllerOnSuccessVariableName: 'frameworkModel',
         httpMethodName: 'Get',
         routerName: 'frameworkRouterReadFramework',

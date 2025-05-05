@@ -1,8 +1,8 @@
-import { handlerControllerNameUcFirst } from '../../../../dist';
+import { handlerControllerFqnsUcFirst } from '@app-mt-rvsr/core/handlers';
 
-describe('handlerControllerNameUcFirst', () => {
+describe('handlerControllerFqnsUcFirst', () => {
   describe('negative', () => {
-    test("should not populate 'accumulator' with 'controllerNameUcFirst' when 'controllerName' is missing (and not alter 'distraction')", () => {
+    test("should not populate 'accumulator' with 'controllerFqnsUcFirst' when 'controllerName' is missing (and not alter 'distraction')", () => {
       /*
        * Arrange
        */
@@ -16,7 +16,7 @@ describe('handlerControllerNameUcFirst', () => {
       /*
        * Act
        */
-      const responseFound = handlerControllerNameUcFirst({ accumulator });
+      const responseFound = handlerControllerFqnsUcFirst({ accumulator });
 
       /*
        * Assert

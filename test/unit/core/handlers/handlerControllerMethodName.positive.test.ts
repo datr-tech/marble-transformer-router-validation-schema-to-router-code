@@ -2,16 +2,18 @@ import { handlerControllerMethodName } from '@app-mt-rvsr/core/handlers';
 
 describe('handlerControllerMethodName', () => {
   describe('positive', () => {
-    test("should populate 'accumulator' with 'controllerMethodName' when 'routerValidationSchemaName' contains one of the pre-defined method names (and not alter 'distraction')", () => {
+    test("should populate 'accumulator' with 'controllerMethodName' when 'controllerMethodBase' and 'modelPrefixUcFirst' are present (and not alter 'distraction')", () => {
       /*
        * Arrange
        */
-      const controllerMethodName = 'Create';
-      const routerValidationSchemaName = `testRouterValidationSchema${controllerMethodName}Test`;
+      const controllerMethodBase = 'Create';
+      const modelPrefixUcFirst = 'Test';
       const accumulator = {
-        routerValidationSchemaName,
+        controllerMethodBase,
+        modelPrefixUcFirst,
         distraction: 'SHOULD_NOT_BE_ALTERED',
       };
+      const controllerMethodName = 'createTest';
       const responseExpected = { ...accumulator, controllerMethodName };
 
       /*

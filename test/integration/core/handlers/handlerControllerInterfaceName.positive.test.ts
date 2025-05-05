@@ -2,16 +2,16 @@ import { handlerControllerInterfaceName } from '../../../../dist';
 
 describe('handlerControllerInterfaceName', () => {
   describe('positive', () => {
-    test("should populate 'accumulator' with 'controllerInterfaceName' when 'controllerNameUcFirst' is present (and not alter 'distraction')", () => {
+    test("should populate 'accumulator' with 'controllerInterfaceName' when 'controllerFqnsUcFirst' is present (and not alter 'distraction')", () => {
       /*
        * Arrange
        */
-      const controllerNameUcFirst = 'TestController';
+      const controllerFqnsUcFirst = 'TestController';
       const accumulator = {
-        controllerNameUcFirst,
+        controllerFqnsUcFirst,
         distraction: 'SHOULD_NOT_BE_ALTERED',
       };
-      const controllerInterfaceName = 'I' + controllerNameUcFirst;
+      const controllerInterfaceName = 'I' + controllerFqnsUcFirst;
       const responseExpected = { ...accumulator, controllerInterfaceName };
 
       /*

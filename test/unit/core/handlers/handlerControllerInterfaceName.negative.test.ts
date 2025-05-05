@@ -5,13 +5,13 @@ import { handlerControllerInterfaceName } from '@app-mt-rvsr/core/handlers';
 
 describe('handlerControllerInterfaceName', () => {
   describe('negative', () => {
-    test("should not populate 'accumulator' with 'controllerInterfaceName' when 'controllerNameUcFirst' is missing (and not alter 'distraction')", () => {
+    test("should not populate 'accumulator' with 'controllerInterfaceName' when 'controllerFqnsUcFirst' is missing (and not alter 'distraction')", () => {
       /*
        * Arrange
        */
-      const controllerNameUcFirst = 'TestController';
+      const controllerFqnsUcFirst = 'TestController';
       const accumulator = {
-        controllerNameUcFirstIncorrect: controllerNameUcFirst,
+        controllerFqnsUcFirstIncorrect: controllerFqnsUcFirst,
         distraction: 'SHOULD_NOT_BE_ALTERED',
       };
       const responseExpected = { ...accumulator };

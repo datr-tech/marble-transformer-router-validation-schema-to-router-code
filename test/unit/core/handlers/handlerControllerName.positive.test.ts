@@ -2,19 +2,16 @@ import { handlerControllerName } from '@app-mt-rvsr/core/handlers';
 
 describe('handlerControllerName', () => {
   describe('positive', () => {
-    test("should populate 'accumulator' with 'controllerName' when 'routerValidationSchemaName' is present (and not alter 'distraction')", () => {
+    test("should populate 'accumulator' with 'controllerName' when 'modelPrefix' is present (and not alter 'distraction')", () => {
       /*
        * Arrange
        */
-      const routerValidationSchemaName = `testValidationSchemaCreateTest`;
+      const modelPrefix = `test`;
       const accumulator = {
-        routerValidationSchemaName,
+        modelPrefix,
         distraction: 'SHOULD_NOT_BE_ALTERED',
       };
-      const controllerName = routerValidationSchemaName.replace(
-        'ValidationSchema',
-        'Controller',
-      );
+      const controllerName = modelPrefix + 'Controller';
       const responseExpected = { ...accumulator, controllerName };
 
       /*

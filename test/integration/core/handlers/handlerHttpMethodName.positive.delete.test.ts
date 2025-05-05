@@ -2,13 +2,13 @@ import { handlerHttpMethodName } from '../../../../dist';
 
 describe('handlerHttpMethodName', () => {
   describe('positive.delete', () => {
-    test("should populate 'accumulator' with 'httpMethodName' when 'controllerMethodName' contains a valid value (of 'Delete')", () => {
+    test("should populate 'accumulator' with 'httpMethodName' when 'controllerMethodBase' contains a valid value (of 'Delete')", () => {
       /*
        * Arrange
        */
-      const controllerMethodName = 'Delete';
+      const controllerMethodBase = 'Delete';
       const accumulator = {
-        controllerMethodName,
+        controllerMethodBase,
         distraction: 'SHOULD_NOT_BE_ALTERED',
       };
       const httpMethodName = 'Delete';

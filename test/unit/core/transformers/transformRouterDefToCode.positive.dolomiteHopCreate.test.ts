@@ -4,7 +4,7 @@ import { fsTemplate } from '@datr.tech/marble-generator-file-system-components';
 
 describe('transformRouterDefToCode', () => {
   describe('positive.dolomiteHopCreate', () => {
-    test("should return the expected 'codeFound' string", () => {
+    test("should return the expected 'codeFound' string", async () => {
       /*
        * Arrange
        */
@@ -18,11 +18,13 @@ describe('transformRouterDefToCode', () => {
         modelPrimaryKey: 'hopId',
         modelInstanceName: 'hopModel',
         modelInterfaceName: 'IHopModel',
-        controllerName: 'hopControllerCreateHop',
-        controllerNameUcFirst: 'HopControllerCreateHop',
+        controllerName: 'hopController',
+        controllerFqns: 'hopControllerCreateHop',
+        controllerFqnsUcFirst: 'HopControllerCreateHop',
         controllerInterfaceName: 'IHopControllerCreateHop',
         controllerDirName: 'hopController',
-        controllerMethodName: 'Create',
+        controllerMethodBase: 'Create',
+        controllerMethodName: 'createHop',
         controllerOnSuccessVariableName: 'hopId',
         httpMethodName: 'Post',
         routerName: 'hopRouterCreateHop',

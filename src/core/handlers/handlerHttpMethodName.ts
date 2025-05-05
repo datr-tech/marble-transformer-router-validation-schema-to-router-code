@@ -4,15 +4,15 @@
 import { IHandler } from '@datr.tech/marble-transformer-core';
 
 export const handlerHttpMethodName: IHandler = ({ accumulator }) => {
-  let controllerMethodName = '';
+  let controllerMethodBase = '';
   let httpMethodName = '';
 
-  if (typeof accumulator['controllerMethodName'] !== 'undefined') {
-    controllerMethodName = accumulator['controllerMethodName'] as string;
+  if (typeof accumulator['controllerMethodBase'] !== 'undefined') {
+    controllerMethodBase = accumulator['controllerMethodBase'] as string;
   }
 
-  if (controllerMethodName !== '') {
-    switch (controllerMethodName) {
+  if (controllerMethodBase !== '') {
+    switch (controllerMethodBase) {
       case 'Create':
         httpMethodName = 'Post';
         break;

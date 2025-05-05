@@ -2,11 +2,17 @@ import { handlerControllerMethodName } from '@app-mt-rvsr/core/handlers';
 
 describe('handlerControllerMethodName', () => {
   describe('negative', () => {
-    test("should not populate 'accumulator' with 'controllerMethodName' when 'routerValidationSchemaName' is missing (and not alter 'distraction')", () => {
+    test("should not populate 'accumulator' with 'controllerMethodName' when either 'controllerMethodBase' or 'modelPrefixUcFirst' (or both) are missing (and not alter 'distraction')", () => {
       /*
        * Arrange
        */
-      const accumulator = { distraction: 'SHOULD_NOT_BE_ALTERED' };
+      const controllerMethodBase = 'Create';
+      const modelPrefixUcFirst = 'Test';
+      const accumulator = {
+        controllerMethodBaseIncorrectKey: controllerMethodBase,
+        modelPrefixUcFirst,
+        distraction: 'SHOULD_NOT_BE_ALTERED',
+      };
       const responseExpected = { ...accumulator };
 
       /*

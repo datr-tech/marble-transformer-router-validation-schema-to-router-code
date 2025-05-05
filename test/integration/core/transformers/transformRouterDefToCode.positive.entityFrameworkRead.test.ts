@@ -1,5 +1,6 @@
+import { routerTemplatePath } from '@app-mt-rvsr/core/config';
 import { fsTemplate } from '@datr.tech/marble-generator-file-system-components';
-import { routerTemplatePath, transformRouterDefToCode } from '../../../../dist';
+import { transformRouterDefToCode } from '../../../../dist';
 
 describe('transformRouterDefToCode', () => {
   describe('positive.entityFrameworkRead', () => {
@@ -17,11 +18,13 @@ describe('transformRouterDefToCode', () => {
         modelPrimaryKey: 'frameworkId',
         modelInstanceName: 'frameworkModel',
         modelInterfaceName: 'IFrameworkModel',
-        controllerName: 'frameworkControllerReadFramework',
-        controllerNameUcFirst: 'FrameworkControllerReadFramework',
+        controllerName: 'frameworkController',
+        controllerFqns: 'frameworkControllerReadFramework',
+        controllerFqnsUcFirst: 'FrameworkControllerReadFramework',
         controllerInterfaceName: 'IFrameworkControllerReadFramework',
         controllerDirName: 'frameworkController',
-        controllerMethodName: 'Read',
+        controllerMethodBase: 'Read',
+        controllerMethodName: 'readFramework',
         controllerOnSuccessVariableName: 'frameworkModel',
         httpMethodName: 'Get',
         routerName: 'frameworkRouterReadFramework',
