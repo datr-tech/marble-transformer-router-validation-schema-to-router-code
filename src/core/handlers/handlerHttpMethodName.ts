@@ -14,19 +14,19 @@ export const handlerHttpMethodName: IHandler = ({ accumulator }) => {
   if (controllerMethodBase !== '') {
     switch (controllerMethodBase) {
       case 'Create':
-        httpMethodName = 'Post';
+        httpMethodName = 'post';
         break;
 
       case 'Delete':
-        httpMethodName = 'Delete';
+        httpMethodName = 'delete';
         break;
 
       case 'Read':
-        httpMethodName = 'Get';
+        httpMethodName = 'get';
         break;
 
       case 'Update':
-        httpMethodName = 'Patch';
+        httpMethodName = 'patch';
         break;
     }
   }

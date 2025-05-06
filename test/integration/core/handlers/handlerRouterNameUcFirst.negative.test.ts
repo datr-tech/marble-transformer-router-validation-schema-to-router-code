@@ -1,4 +1,4 @@
-import { handlerRouterNameUcFirst } from '../../../../dist';
+import { handlerRouterNameUcFirst } from './../../../../dist';
 
 describe('handlerRouterNameUcFirst', () => {
   describe('negative', () => {

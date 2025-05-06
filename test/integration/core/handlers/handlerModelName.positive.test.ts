@@ -1,4 +1,4 @@
-import { handlerModelName } from '../../../../dist';
+import { handlerModelName } from './../../../../dist';
 
 describe('handlerModelName', () => {
   describe('positive', () => {

@@ -1,4 +1,4 @@
-import { handlerControllerMethodName } from '../../../../dist';
+import { handlerControllerMethodName } from './../../../../dist';
 
 describe('handlerControllerMethodName', () => {
   describe('negative', () => {

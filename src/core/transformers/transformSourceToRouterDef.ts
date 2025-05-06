@@ -13,15 +13,18 @@ import {
   handlerControllerName,
   handlerControllerOnSuccessVariableName,
   handlerHttpMethodName,
+  handlerIsCreate,
   handlerModelInstanceName,
   handlerModelInterfaceName,
   handlerModelName,
   handlerModelPrefix,
   handlerModelPrefixUcFirst,
   handlerModelPrimaryKey,
+  handlerRouterDirName,
   handlerRouterInterfaceName,
   handlerRouterName,
   handlerRouterNameUcFirst,
+  handlerRouterSrcPath,
   handlerRouterValidationSchemaName,
 } from '@app-mt-rvsr/core/handlers';
 import { ITransformSourceToRouterDef } from '@app-mt-rvsr/interfaces/core/transformers';
@@ -70,6 +73,9 @@ export const transformSourceToRouterDef: ITransformSourceToRouterDef = ({ source
     handlerRouterNameUcFirst,
     handlerRouterInterfaceName,
     handlerModelInterfaceName,
+    handlerRouterDirName,
+    handlerRouterSrcPath,
+    handlerIsCreate,
   ];
   const transform = transformer({ handlers });
 

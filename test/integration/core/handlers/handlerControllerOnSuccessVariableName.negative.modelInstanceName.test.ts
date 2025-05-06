@@ -1,4 +1,4 @@
-import { handlerControllerOnSuccessVariableName } from '../../../../dist';
+import { handlerControllerOnSuccessVariableName } from './../../../../dist';
 
 describe('handlerControllerOnSuccessVariableName', () => {
   describe('negative.modelInstanceName', () => {

@@ -1,7 +1,7 @@
 /**
  * @module integration/core/handlers
  */
-import { handlerControllerInterfaceName } from '../../../../dist';
+import { handlerControllerInterfaceName } from './../../../../dist';
 
 describe('handlerControllerInterfaceName', () => {
   describe('negative', () => {

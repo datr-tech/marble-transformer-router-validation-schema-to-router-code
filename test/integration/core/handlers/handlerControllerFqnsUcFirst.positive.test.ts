@@ -1,4 +1,4 @@
-import { handlerControllerFqnsUcFirst } from '../../../../dist';
+import { handlerControllerFqnsUcFirst } from './../../../../dist';
 
 describe('handlerControllerFqnsUcFirst', () => {
   describe('positive', () => {

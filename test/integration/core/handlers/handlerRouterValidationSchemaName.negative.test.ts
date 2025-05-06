@@ -1,4 +1,4 @@
-import { handlerRouterValidationSchemaName } from '../../../../dist';
+import { handlerRouterValidationSchemaName } from './../../../../dist';
 
 describe('handlerRouterValidationSchemaName', () => {
   describe('negative', () => {

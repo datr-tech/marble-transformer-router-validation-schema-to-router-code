@@ -1,4 +1,4 @@
-import { handlerControllerFqns } from '../../../../dist';
+import { handlerControllerFqns } from './../../../../dist';
 
 describe('handlerControllerFqns', () => {
   describe('positive', () => {

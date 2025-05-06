@@ -1,4 +1,4 @@
-import { routerTemplateName } from '../../../../dist';
+import { routerTemplateName } from './../../../../dist';
 
 describe('routerTemplateName', () => {
   describe('positive', () => {

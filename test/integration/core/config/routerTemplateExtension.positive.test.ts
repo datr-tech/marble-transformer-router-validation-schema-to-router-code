@@ -1,4 +1,4 @@
-import { routerTemplateExtension } from '../../../../dist';
+import { routerTemplateExtension } from './../../../../dist';
 
 describe('routerTemplateExtension', () => {
   describe('positive', () => {

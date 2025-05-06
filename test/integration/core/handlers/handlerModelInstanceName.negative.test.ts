@@ -1,4 +1,4 @@
-import { handlerModelInstanceName } from '../../../../dist';
+import { handlerModelInstanceName } from './../../../../dist';
 
 describe('handlerModelInstanceName', () => {
   describe('negative', () => {

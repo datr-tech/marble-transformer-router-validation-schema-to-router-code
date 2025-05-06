@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { templateDirPath } from '../../../../dist';
+import { templateDirPath } from './../../../../dist';
 
 describe('templateDirPath', () => {
   describe('positive', () => {

@@ -1,13 +1,28 @@
 /**
- * @module api/routers/{{ modelPrefix }}Router
+ * @module api/routers/{{ routerDir }}
+ */
+
+/*
+ * External imports
  */
 import { Request, Response, Router } from 'express';
 import { checkExact, checkSchema, matchedData, Schema, validationResult } from 'express-validator';
+
+/*
+ * @datr.tech imports
+ */
 import { {{ routerValidationSchemaName }} } from '@datr.tech/cargo-router-validation-schemas-{{ apiName }}';
 import { options } from '@datr.tech/leith-config-api-router-options';
+
+/*
+ * Local, non-relative imports
+ */
 import { {{ controllerName }} } from '{{ appRef }}/api/controllers/{{ controllerDirName }}';
 import { {{ modelInterfaceName }} } from '{{ appRef }}/interfaces/api/models/{{ modelInterfaceName }}';
-import { {{ controllerInterfaceName }}OutputError as IControllerError, {{ controllerInterfaceName }}OutputSuccess as IControllerSuccess } from '{{ appRef }}/interfaces/api/controllers';
+import {
+	{{ controllerInterfaceName }}OutputError as IControllerError,
+	{{ controllerInterfaceName }}OutputSuccess as IControllerSuccess
+} from '{{ appRef }}/interfaces/api/controllers';
 
 /**
  * @name					{{ routerName }}
@@ -28,6 +43,13 @@ import { {{ controllerInterfaceName }}OutputError as IControllerError, {{ contro
  *
  * @author				Datr.Tech Admin <admin@datr.tech>
  * @version				0.3.2
+ *
+ * @see		        | Outcomes                    | HTTP status codes |
+ *                | --------------------------- | ----------------- |
+ *                | On success                  | {{#if isCreate}}201 {{ else }}200 {{/if}}          |
+ *                | Router validation error     | 422               |
+ *                | Controller validation error | 404               |		    
+ *                | Server error                | 500               |		    
  */
 export const {{ routerName }} = Router(options).{{ httpMethodName }}(
   '/',

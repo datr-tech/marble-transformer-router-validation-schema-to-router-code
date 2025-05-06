@@ -1,4 +1,4 @@
-import { handlerControllerInterfaceName } from '../../../../dist';
+import { handlerControllerInterfaceName } from './../../../../dist';
 
 describe('handlerControllerInterfaceName', () => {
   describe('positive', () => {

@@ -1,4 +1,4 @@
-import { handlerModelPrimaryKey } from '../../../../dist';
+import { handlerModelPrimaryKey } from './../../../../dist';
 
 describe('handlerModelPrimaryKey', () => {
   describe('negative', () => {

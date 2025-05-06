@@ -1,4 +1,4 @@
-import { handlerRouterInterfaceName } from '../../../../dist';
+import { handlerRouterInterfaceName } from './../../../../dist';
 
 describe('handlerRouterInterfaceName', () => {
   describe('negative', () => {

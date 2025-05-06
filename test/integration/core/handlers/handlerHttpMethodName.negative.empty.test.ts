@@ -1,4 +1,4 @@
-import { handlerHttpMethodName } from '../../../../dist';
+import { handlerHttpMethodName } from './../../../../dist';
 
 describe('handlerHttpMethodName', () => {
   describe('negative.empty', () => {

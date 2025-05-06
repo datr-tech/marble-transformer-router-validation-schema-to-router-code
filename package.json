@@ -46,6 +46,9 @@
     "test": "npm run test:unit",
     "test:it": "npx jest -c ./jest.config.integration.json ./test/integration",
     "test:unit": "npx jest -c ./jest.config.unit.json ./test/unit --coverage",
+    "test:unit:config": "npx jest -c ./jest.config.unit.json ./test/unit/core/config",
+    "test:unit:handlers": "npx jest -c ./jest.config.unit.json ./test/unit/core/handlers",
+    "test:unit:transformers": "npx jest -c ./jest.config.unit.json ./test/unit/core/transformers",
     "version": "npm-run-all build changelog"
   },
   "dependencies": {

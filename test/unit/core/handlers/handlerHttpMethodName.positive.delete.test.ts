@@ -11,7 +11,7 @@ describe('handlerHttpMethodName', () => {
         controllerMethodBase,
         distraction: 'SHOULD_NOT_BE_ALTERED',
       };
-      const httpMethodName = 'Delete';
+      const httpMethodName = 'delete';
       const responseExpected = { ...accumulator, httpMethodName };
 
       /*

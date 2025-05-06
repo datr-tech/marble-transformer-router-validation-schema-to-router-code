@@ -1,4 +1,4 @@
-import { handlerModelPrefixUcFirst } from '../../../../dist';
+import { handlerModelPrefixUcFirst } from './../../../../dist';
 
 describe('handlerModelPrefixUcFirst', () => {
   describe('positive', () => {

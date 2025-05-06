@@ -1,4 +1,4 @@
-import { handlerControllerMethodBase } from '../../../../dist';
+import { handlerControllerMethodBase } from './../../../../dist';
 
 describe('handlerControllerMethodBase', () => {
   describe('negative', () => {
